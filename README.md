@@ -17,6 +17,8 @@ The Jared Wilcurt's strict ESLint rules for importing files.
 
 You may optionally want to add in an import resolver if you use webpack for aliasing.
 
+`npm install --save-dev eslint-import-resolver-webpack`
+
 ```js
 // .eslintrc.js
 const path = require('path');

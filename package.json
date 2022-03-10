@@ -1,0 +1,25 @@
+{
+  "name": "eslint-config-tjw-import",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "The Jared Wilcurt's JS Import Linting rules",
+  "author": "The Jared Wilcurt",
+  "keywords": [
+    "tjw",
+    "import",
+    "eslint",
+    "lint"
+  ],
+  "dependencies": {
+    "eslint-plugin-import": "^2.25.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjw-lint/eslint-config-tjw-import.git"
+  },
+  "homepage": "https://github.com/tjw-lint/eslint-config-tjw-import#readme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjw-lint/eslint-config-tjw-import/issues"
+  }
+}

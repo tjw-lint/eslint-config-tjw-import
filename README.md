@@ -15,7 +15,10 @@ The Jared Wilcurt's strict ESLint rules for importing files.
     };
     ```
 
-You may optionally want to add in an import resolver if you use webpack for aliasing.
+
+## Vite/Webpack aliases
+
+You may optionally want to add in an import resolver if you use **Vite** or **Webpack** for aliasing. The below code says "webpack" but works for both.
 
 `npm install --save-dev eslint-import-resolver-webpack`
 
@@ -34,7 +37,8 @@ module.exports = {
           resolve: {
             alias: {
               '@': path.resolve('src'),
-              '@@': path.resolve('tests')
+              '@@': path.resolve('tests'),
+              '@@@': path.resolve('docs')
             }
           }
         }

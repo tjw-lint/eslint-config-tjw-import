@@ -19,6 +19,8 @@ The Jared Wilcurt's strict ESLint rules for importing files.
       }
     ];
     ```
+1. You will also need to create an empty `.eslintrc.cjs` file in the root of your project, due to a [known bug](https://github.com/import-js/eslint-plugin-import/issues/3079)
+
 
 
 ## Vite aliases

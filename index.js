@@ -1,8 +1,4 @@
-module.exports = {
-  extends: [
-    'plugin:import/errors',
-    'plugin:import/warnings'
-  ],
+export default {
   rules: {
     'import/default': 'error',
     'import/dynamic-import-chunkname': 'off',
@@ -139,6 +135,26 @@ module.exports = {
           },
           {
             pattern: '@/mixins/**',
+            group: 'object',
+            position: 'before'
+          },
+          {
+            pattern: '@@@/helpers/**',
+            group: 'object',
+            position: 'before'
+          },
+          {
+            pattern: '@@@/mixins/**',
+            group: 'object',
+            position: 'before'
+          },
+          {
+            pattern: '@/**/*.vue',
+            group: 'object',
+            position: 'before'
+          },
+          {
+            pattern: '@@@/**/*.vue',
             group: 'object',
             position: 'before'
           },

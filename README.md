@@ -5,47 +5,61 @@ The Jared Wilcurt's strict ESLint rules for importing files.
 
 ## Using this
 
-1. `npm install --save-dev eslint-plugin-import eslint-config-tjw-import`
-1. In your `.eslitrc.js` add `tjw-import` to your `extends` like so:
+1. `npm install --save-dev eslint eslint-plugin-import eslint-config-tjw-import`
+1. In your `eslint.config.js`:
     ```js
-    module.exports = {
-      extends: [
-        'tjw-import'
-      ]
-    };
+    import importPlugin from 'eslint-plugin-import';
+    import tjwImport from 'eslint-config-tjw-import';
+
+    export default [
+      importPlugin.flatConfigs.recommended,
+      tjwImport,
+      {
+        // Then project specific rules/settings
+      }
+    ];
     ```
+1. You will also need to create an empty `.eslintrc.cjs` file in the root of your project, due to a [known bug](https://github.com/import-js/eslint-plugin-import/issues/3079)
 
 
-## Vite/Webpack aliases
 
-You may optionally want to add in an import resolver if you use **Vite** or **Webpack** for aliasing. The below code says "webpack" but works for both.
+## Vite aliases
 
-`npm install --save-dev eslint-import-resolver-webpack`
+You may want to add in an import resolver if you use **Vite** for aliasing.
+
+`npm install --save-dev eslint-import-resolver-vite`
 
 ```js
-// .eslintrc.js
-const path = require('path');
+// eslint.config.js
+import path from 'node:path';
 
-module.exports = {
-  extends: [
-    'tjw-import'
-  ],
-  settings: {
-    'import/resolver': {
-      webpack: {
-        config: {
-          resolve: {
-            alias: {
-              '@': path.resolve('src'),
-              '@@': path.resolve('tests'),
-              '@@@': path.resolve('docs')
+import importPlugin from 'eslint-plugin-import';
+import tjwImport from 'eslint-config-tjw-import';
+
+const __dirname = import.meta.dirname;
+
+export default [
+  importPlugin.flatConfigs.recommended,
+  tjwImport,
+  {
+    // Project specific rules/settings
+    settings: {
+      'import/resolver': {
+        vite: {
+          viteConfig: {
+            resolve: {
+              alias: {
+                '@': path.resolve(__dirname, 'src'),
+                '@@': path.resolve(__dirname, 'tests'),
+                '@@@': path.resolve(__dirname, 'docs')
+              }
             }
           }
         }
       }
     }
   }
-};
+];
 ```
 
 
